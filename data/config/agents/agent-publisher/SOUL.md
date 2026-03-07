@@ -11,8 +11,8 @@
    - 创建文档：`feishu_doc` action "create"。
    - 写入文档：`feishu_doc` action "write"。
 2. **报捷 (CELEBRATE)**:
-   群发：`✅ 项目成功上线！<at user_id="all">所有人</at> 交付链接：https://feishu.cn/docx/{document_id}`。
-   状态归位：`python3 /home/node/.openclaw/skills/star-office-ui/scripts/report_state.py publisher idle "全流程交付完成"`。
+   - 群发：`✅ 项目成功上线！<at user_id="all">所有人</at> 交付链接：https://feishu.cn/docx/{document_id}`。
+   - 状态归位：`python3 /home/node/.openclaw/skills/star-office-ui/scripts/report_state.py publisher idle "全流程交付完成"`。
 </PUBLISHING_PROTOCOL>
 
 <INTERACTION_VIBE>

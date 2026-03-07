@@ -4,7 +4,7 @@
     "openai:default": {
       "type": "api_key",
       "provider": "openai",
-      "key": "sk-gbplenqqbnytgyjjimlgjjwziocfdrnolpmdbpiqyheqqpaf"
+      "key": "sk-HjSvptDG4q377m7PSa9fZMHF31dH2vhoo5GXujzycomzkjd9"
     }
   },
   "lastGood": {
@@ -12,8 +12,9 @@
   },
   "usageStats": {
     "openai:default": {
-      "lastUsed": 1772889130905,
-      "errorCount": 0
+      "lastUsed": 1772898946720,
+      "errorCount": 0,
+      "lastFailureAt": 1772898690230
     }
   }
 }

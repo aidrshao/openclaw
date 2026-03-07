@@ -59,7 +59,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai/deepseek-ai/DeepSeek-V3"
+        "primary": "openai/kimi-k2.5"
       },
       "maxConcurrent": 10,
       "subagents": {
@@ -71,20 +71,20 @@
         "id": "agent-director",
         "name": "director",
         "default": true,
+        "workspace": "/home/node/.openclaw/workspace",
         "tools": {
           "allow": [
             "sessions_spawn",
             "agents_list",
-            "feishu_message"
-          ],
-          "deny": [
+            "feishu_message",
             "read",
             "write",
+            "exec"
+          ],
+          "deny": [
             "web_search",
             "web_fetch",
-            "lobster",
-            "file_writer",
-            "file_reader"
+            "lobster"
           ]
         },
         "subagents": {
@@ -106,7 +106,8 @@
             "sessions_spawn",
             "read",
             "write",
-            "exec"
+            "exec",
+            "tavily_search"
           ]
         },
         "subagents": {
@@ -160,7 +161,9 @@
           "allow": [
             "feishu_doc",
             "feishu_message",
-            "exec"
+            "exec",
+            "read",
+            "write"
           ]
         }
       }
@@ -223,11 +226,11 @@
     "providers": {
       "openai": {
         "api": "openai-completions",
-        "baseUrl": "https://api.siliconflow.cn/v1",
+        "baseUrl": "https://www.dmxapi.cn/v1",
         "models": [
           {
-            "id": "deepseek-ai/DeepSeek-V3",
-            "name": "DeepSeek V3"
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5"
           }
         ]
       }

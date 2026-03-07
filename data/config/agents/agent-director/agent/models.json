@@ -1,12 +1,12 @@
 {
   "providers": {
     "openai": {
-      "baseUrl": "https://api.siliconflow.cn/v1",
+      "baseUrl": "https://www.dmxapi.cn/v1",
       "api": "openai-completions",
       "models": [
         {
-          "id": "deepseek-ai/DeepSeek-V3",
-          "name": "DeepSeek V3",
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
           "reasoning": false,
           "input": [
             "text"
@@ -21,7 +21,7 @@
           "maxTokens": 8192
         }
       ],
-      "apiKey": "sk-gbplenqqbnytgyjjimlgjjwziocfdrnolpmdbpiqyheqqpaf"
+      "apiKey": "OPENAI_API_KEY"
     }
   }
 }

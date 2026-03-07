@@ -139,18 +139,12 @@
     "outputTokens": 4,
     "totalTokens": 8227
   },
-  "agent:agent-writer:subagent:a9dd9ab2-9166-4687-8abc-ab3eacaa0616": {
-    "sessionId": "c5a14ed2-c24e-45d0-a524-b6bac8b240c0",
-    "updatedAt": 1772889130912,
-    "deliveryContext": {
-      "channel": "feishu"
-    },
-    "lastChannel": "feishu",
-    "spawnedBy": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
-    "channel": "feishu",
-    "groupId": "ou_92511edb34d2d0ab4416704019ca2f7d",
+  "agent:agent-writer:feishu:direct:ou_28adce600a6ac6a2fde171230255457f": {
+    "sessionId": "332dca22-079c-43b1-ab2e-ddf358f4c057",
+    "updatedAt": 1772898946727,
+    "systemSent": true,
     "skillsSnapshot": {
-      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>bluebubbles</name>\n    <description>Build or update the BlueBubbles external channel plugin for OpenClaw (extension package, REST send/probe, webhook inbound).</description>\n    <location>/app/skills/bluebubbles/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/app/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts (no API key required).</description>\n    <location>/app/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aegis-content-drafting</name>\n    <description>Use when assigned to write a polished article, blog post, social media update, or formal draft based on raw research data or provided intelligence brief.</description>\n    <location>/home/node/.openclaw/skills/aegis-content-drafting/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aegis-deep-research</name>\n    <description>Use when receiving a task to investigate a specific topic, gather real-time intelligence, or pull the latest incremental variables from the web to inform further drafting or analysis.</description>\n    <location>/home/node/.openclaw/skills/aegis-deep-research/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>star-office-ui</name>\n    <description>Report agent state to the Star Office UI pixel dashboard running at http://127.0.0.1:19000. Call this whenever you change your working state so the kanban board stays in sync.</description>\n    <location>/home/node/.openclaw/skills/star-office-ui/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>/home/node/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>bluebubbles</name>\n    <description>Build or update the BlueBubbles external channel plugin for OpenClaw (extension package, REST send/probe, webhook inbound).</description>\n    <location>/app/skills/bluebubbles/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openai-image-gen</name>\n    <description>Batch-generate images via OpenAI Images API. Random prompt sampler + `index.html` gallery.</description>\n    <location>/app/skills/openai-image-gen/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openai-whisper-api</name>\n    <description>Transcribe audio via OpenAI Audio Transcriptions API (Whisper).</description>\n    <location>/app/skills/openai-whisper-api/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/app/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts (no API key required).</description>\n    <location>/app/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aegis-compliance-audit</name>\n    <description>Use when assigned to audit content for compliance, logical consistency, and quality before publishing.</description>\n    <location>/home/node/.openclaw/skills/aegis-compliance-audit/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aegis-content-drafting</name>\n    <description>Use when assigned to write a polished article, blog post, social media update, or formal draft based on raw research data or provided intelligence brief.</description>\n    <location>/home/node/.openclaw/skills/aegis-content-drafting/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>aegis-deep-research</name>\n    <description>Use when receiving a task to investigate a specific topic, gather real-time intelligence, or pull the latest incremental variables from the web to inform further drafting or analysis.</description>\n    <location>/home/node/.openclaw/skills/aegis-deep-research/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>star-office-ui</name>\n    <description>Report agent state to the Star Office UI pixel dashboard running at http://127.0.0.1:19000. Call this whenever you change your working state so the kanban board stays in sync.</description>\n    <location>/home/node/.openclaw/skills/star-office-ui/SKILL.md</location>\n  </skill>\n</available_skills>",
       "skills": [
         {
           "name": "feishu-doc"
@@ -168,10 +162,21 @@
           "name": "bluebubbles"
         },
         {
+          "name": "openai-image-gen",
+          "primaryEnv": "OPENAI_API_KEY"
+        },
+        {
+          "name": "openai-whisper-api",
+          "primaryEnv": "OPENAI_API_KEY"
+        },
+        {
           "name": "skill-creator"
         },
         {
           "name": "weather"
+        },
+        {
+          "name": "aegis-compliance-audit"
         },
         {
           "name": "aegis-content-drafting"
@@ -225,6 +230,22 @@
           "disableModelInvocation": false
         },
         {
+          "name": "openai-image-gen",
+          "description": "Batch-generate images via OpenAI Images API. Random prompt sampler + `index.html` gallery.",
+          "filePath": "/app/skills/openai-image-gen/SKILL.md",
+          "baseDir": "/app/skills/openai-image-gen",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "openai-whisper-api",
+          "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper).",
+          "filePath": "/app/skills/openai-whisper-api/SKILL.md",
+          "baseDir": "/app/skills/openai-whisper-api",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
           "name": "skill-creator",
           "description": "Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.",
           "filePath": "/app/skills/skill-creator/SKILL.md",
@@ -238,6 +259,14 @@
           "filePath": "/app/skills/weather/SKILL.md",
           "baseDir": "/app/skills/weather",
           "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "aegis-compliance-audit",
+          "description": "Use when assigned to audit content for compliance, logical consistency, and quality before publishing.",
+          "filePath": "/home/node/.openclaw/skills/aegis-compliance-audit/SKILL.md",
+          "baseDir": "/home/node/.openclaw/skills/aegis-compliance-audit",
+          "source": "openclaw-managed",
           "disableModelInvocation": false
         },
         {
@@ -267,12 +296,21 @@
       ],
       "version": 0
     },
+    "deliveryContext": {
+      "channel": "feishu",
+      "to": "user:ou_28adce600a6ac6a2fde171230255457f",
+      "accountId": "writer"
+    },
+    "lastChannel": "feishu",
+    "lastTo": "user:ou_28adce600a6ac6a2fde171230255457f",
+    "lastAccountId": "writer",
+    "channel": "feishu",
     "modelProvider": "openai",
-    "model": "deepseek-ai/DeepSeek-V3",
+    "model": "kimi-k2.5",
     "contextTokens": 200000,
     "abortedLastRun": false,
-    "inputTokens": 7350,
-    "outputTokens": 142,
-    "totalTokens": 7350
+    "inputTokens": 8145,
+    "outputTokens": 54,
+    "totalTokens": 8145
   }
 }
