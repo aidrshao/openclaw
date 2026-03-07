@@ -1,12 +1,14 @@
 import type { ChannelMeta, ChannelPlugin, ClawdbotConfig } from "openclaw/plugin-sdk";
 import {
-  buildBaseChannelStatusSummary,
-  createDefaultChannelRuntimeState,
   DEFAULT_ACCOUNT_ID,
   PAIRING_APPROVED_MESSAGE,
   resolveAllowlistProviderRuntimeGroupPolicy,
   resolveDefaultGroupPolicy,
 } from "openclaw/plugin-sdk";
+import {
+  createDefaultChannelRuntimeState,
+  buildBaseChannelStatusSummary,
+} from "./plugin-sdk-compat.js";
 import {
   resolveFeishuAccount,
   resolveFeishuCredentials,

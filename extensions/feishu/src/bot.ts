@@ -1,15 +1,18 @@
 import type { ClawdbotConfig, RuntimeEnv } from "openclaw/plugin-sdk";
 import {
   buildAgentMediaPayload,
-  buildPendingHistoryContextFromMap,
-  clearHistoryEntriesIfEnabled,
-  createScopedPairingAccess,
-  DEFAULT_GROUP_HISTORY_LIMIT,
-  type HistoryEntry,
-  recordPendingHistoryEntryIfEnabled,
+  feishuCreateScopedPairingAccess,
   resolveOpenProviderRuntimeGroupPolicy,
   resolveDefaultGroupPolicy,
   warnMissingProviderGroupPolicyFallbackOnce,
+  withReplyDispatcher,
+} from "./plugin-sdk-compat.js";
+import {
+  buildPendingHistoryContextFromMap,
+  clearHistoryEntriesIfEnabled,
+  DEFAULT_GROUP_HISTORY_LIMIT,
+  type HistoryEntry,
+  recordPendingHistoryEntryIfEnabled,
 } from "openclaw/plugin-sdk";
 import { resolveFeishuAccount } from "./accounts.js";
 import { createFeishuClient } from "./client.js";
@@ -864,7 +867,7 @@ export async function handleFeishuMessage(params: {
 
   try {
     const core = getFeishuRuntime();
-    const pairing = createScopedPairingAccess({
+    const pairing = feishuCreateScopedPairingAccess({
       core,
       channel: "feishu",
       accountId: account.accountId,
@@ -875,8 +878,8 @@ export async function handleFeishuMessage(params: {
     );
     const storeAllowFrom =
       !isGroup &&
-      dmPolicy !== "allowlist" &&
-      (dmPolicy !== "open" || shouldComputeCommandAuthorized)
+        dmPolicy !== "allowlist" &&
+        (dmPolicy !== "open" || shouldComputeCommandAuthorized)
         ? await pairing.readAllowFromStore().catch(() => [])
         : [];
     const effectiveDmAllowFrom = [...configAllowFrom, ...storeAllowFrom];
@@ -931,11 +934,11 @@ export async function handleFeishuMessage(params: {
     }).allowed;
     const commandAuthorized = shouldComputeCommandAuthorized
       ? core.channel.commands.resolveCommandAuthorizedFromAuthorizers({
-          useAccessGroups,
-          authorizers: [
-            { configured: commandAllowFrom.length > 0, allowed: senderAllowedForCommands },
-          ],
-        })
+        useAccessGroups,
+        authorizers: [
+          { configured: commandAllowFrom.length > 0, allowed: senderAllowedForCommands },
+        ],
+      })
       : undefined;
 
     // In group chats, the session is scoped to the group, but the *speaker* is the sender.
@@ -999,12 +1002,12 @@ export async function handleFeishuMessage(params: {
       // Add parentPeer for binding inheritance in topic-scoped modes.
       parentPeer:
         isGroup &&
-        topicRootForSession &&
-        (groupSessionScope === "group_topic" || groupSessionScope === "group_topic_sender")
+          topicRootForSession &&
+          (groupSessionScope === "group_topic" || groupSessionScope === "group_topic_sender")
           ? {
-              kind: "group",
-              id: ctx.chatId,
-            }
+            kind: "group",
+            id: ctx.chatId,
+          }
           : null,
     });
 
@@ -1125,10 +1128,10 @@ export async function handleFeishuMessage(params: {
     const inboundHistory =
       isGroup && historyKey && historyLimit > 0 && chatHistories
         ? (chatHistories.get(historyKey) ?? []).map((entry) => ({
-            sender: entry.sender,
-            body: entry.body,
-            timestamp: entry.timestamp,
-          }))
+          sender: entry.sender,
+          body: entry.body,
+          timestamp: entry.timestamp,
+        }))
         : undefined;
 
     const ctxPayload = core.channel.reply.finalizeInboundContext({
@@ -1171,7 +1174,7 @@ export async function handleFeishuMessage(params: {
     });
 
     log(`feishu[${account.accountId}]: dispatching to agent (session=${route.sessionKey})`);
-    const { queuedFinal, counts } = await core.channel.reply.withReplyDispatcher({
+    const { queuedFinal, counts } = await withReplyDispatcher({
       dispatcher,
       onSettled: () => {
         markDispatchIdle();

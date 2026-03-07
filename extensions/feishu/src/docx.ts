@@ -126,25 +126,21 @@ async function insertBlocks(
     return { children: [], skipped };
   }
 
-  // Insert blocks one at a time to preserve document order.
-  // The batch API (sending all children at once) does not guarantee ordering
-  // because Feishu processes the batch asynchronously.  Sequential single-block
-  // inserts (each appended to the end) produce deterministic results.
-  const allInserted: any[] = [];
-  for (const [offset, block] of cleaned.entries()) {
-    const res = await client.docx.documentBlockChildren.create({
-      path: { document_id: docToken, block_id: blockId },
-      data: {
-        children: [block],
-        ...(index !== undefined ? { index: index + offset } : {}),
-      },
-    });
-    if (res.code !== 0) {
-      throw new Error(res.msg);
-    }
-    allInserted.push(...(res.data?.children ?? []));
+  // Create all blocks in a single batch to respect API QPS limits.
+  // Feishu preserves order for blocks within the same children array.
+  const res = await client.docx.documentBlockChildren.create({
+    path: { document_id: docToken, block_id: blockId },
+    data: {
+      children: cleaned,
+      ...(index !== undefined ? { index } : {}),
+    },
+  });
+
+  if (res.code !== 0) {
+    throw new Error(res.msg);
   }
-  return { children: allInserted, skipped };
+
+  return { children: res.data?.children ?? [], skipped };
 }
 
 /** Split markdown into chunks at top-level headings (# or ##) to stay within API content limits */
@@ -218,7 +214,14 @@ function splitMarkdownBySize(markdown: string, maxChars: number): string[] {
 async function convertMarkdownWithFallback(client: Lark.Client, markdown: string, depth = 0) {
   try {
     return await convertMarkdown(client, markdown);
-  } catch (error) {
+  } catch (error: any) {
+    // If it's a 429 (Too Many Requests), don't retry by splitting because it will only 
+    // amplify the requests and make it worse.
+    const isRateLimit = error.message?.includes("429") || error.code === 429 || error.status === 429;
+    if (isRateLimit) {
+      throw error;
+    }
+
     if (depth >= MAX_CONVERT_RETRY_DEPTH || markdown.length < 2) {
       throw error;
     }
@@ -229,11 +232,12 @@ async function convertMarkdownWithFallback(client: Lark.Client, markdown: string
       throw error;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- SDK block types
     const blocks: any[] = [];
     const firstLevelBlockIds: string[] = [];
 
     for (const chunk of chunks) {
+      // Small sleep before each sub-chunk call to give the API some breathing room
+      await new Promise(r => setTimeout(r, 200));
       const converted = await convertMarkdownWithFallback(client, chunk, depth + 1);
       blocks.push(...converted.blocks);
       firstLevelBlockIds.push(...converted.firstLevelBlockIds);
@@ -249,6 +253,10 @@ async function chunkedConvertMarkdown(client: Lark.Client, markdown: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- SDK block types
   const allBlocks: any[] = [];
   for (const chunk of chunks) {
+    if (allBlocks.length > 0) {
+      // Small sleep between heading chunks
+      await new Promise(r => setTimeout(r, 500));
+    }
     const { blocks, firstLevelBlockIds } = await convertMarkdownWithFallback(client, chunk);
     const sorted = sortBlocksByFirstLevel(blocks, firstLevelBlockIds);
     allBlocks.push(...sorted);
@@ -270,6 +278,10 @@ async function chunkedInsertBlocks(
   const allSkipped: string[] = [];
 
   for (let i = 0; i < blocks.length; i += MAX_BLOCKS_PER_INSERT) {
+    if (i > 0) {
+      // Small sleep between insertion batches
+      await new Promise(r => setTimeout(r, 500));
+    }
     const batch = blocks.slice(i, i + MAX_BLOCKS_PER_INSERT);
     const { children, skipped } = await insertBlocks(client, docToken, batch, parentBlockId);
     allChildren.push(...children);
@@ -645,6 +657,8 @@ async function writeDoc(client: Lark.Client, docToken: string, markdown: string,
 
   return {
     success: true,
+    document_id: docToken,
+    url: `https://feishu.cn/docx/${docToken}`,
     blocks_deleted: deleted,
     blocks_added: inserted.length,
     images_processed: imagesProcessed,
@@ -670,6 +684,8 @@ async function appendDoc(
 
   return {
     success: true,
+    document_id: docToken,
+    url: `https://feishu.cn/docx/${docToken}`,
     blocks_added: inserted.length,
     images_processed: imagesProcessed,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any -- SDK block type
@@ -1100,8 +1116,13 @@ export function registerFeishuDocTools(api: OpenClawPluginApi) {
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- exhaustive check fallback
                   return json({ error: `Unknown action: ${(p as any).action}` });
               }
-            } catch (err) {
-              return json({ error: err instanceof Error ? err.message : String(err) });
+            } catch (err: any) {
+              const errorDetails = err.response?.data || err.details || (err.msg ? { code: err.code, msg: err.msg } : undefined);
+              return json({ 
+                status: "error",
+                message: err instanceof Error ? err.message : String(err),
+                details: errorDetails
+              });
             }
           },
         };

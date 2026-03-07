@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "profiles": {
+    "openai:default": {
+      "type": "api_key",
+      "provider": "openai",
+      "key": "sk-gbplenqqbnytgyjjimlgjjwziocfdrnolpmdbpiqyheqqpaf"
+    }
+  },
+  "lastGood": {
+    "openai": "openai:default"
+  },
+  "usageStats": {
+    "openai:default": {
+      "lastUsed": 1772876605446,
+      "errorCount": 0
+    }
+  }
+}

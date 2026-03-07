@@ -1,5 +1,4 @@
-import type { ClawdbotConfig } from "openclaw/plugin-sdk";
-import { DEFAULT_ACCOUNT_ID, normalizeAccountId } from "openclaw/plugin-sdk/account-id";
+import { DEFAULT_ACCOUNT_ID, normalizeAccountId, type OpenClawConfig as ClawdbotConfig } from "openclaw/plugin-sdk";
 import type {
   FeishuConfig,
   FeishuAccountConfig,

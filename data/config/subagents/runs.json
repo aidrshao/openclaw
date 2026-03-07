@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "runs": {
+    "8f79a615-3fcd-4f29-8bdc-d612dcf725e5": {
+      "runId": "8f79a615-3fcd-4f29-8bdc-d612dcf725e5",
+      "childSessionKey": "agent:agent-researcher:subagent:ebd078ae-bec5-4dca-9069-5b7683115483",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_1994dad0b4cb385b35f67ab438a15e1c",
+        "accountId": "director"
+      },
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "task": "[STAR-OFFICE_REPORT: researcher researching '正在启动深度情报搜寻...'] [FEISHU_CONTEXT: ChatID=oc_1994dad0b4cb385b35f67ab438a15e1c] 请立即开始对【任务目标】的深度调研，确保完成后将结果交给写手老李。",
+      "cleanup": "keep",
+      "createdAt": 1772888789170,
+      "startedAt": 1772888789579,
+      "archiveAtMs": 1772892389170,
+      "cleanupHandled": true,
+      "endedAt": 1772888871833,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772888895230
+    },
+    "91cefbb6-c0aa-4780-ac58-33192cdd5c6d": {
+      "runId": "91cefbb6-c0aa-4780-ac58-33192cdd5c6d",
+      "childSessionKey": "agent:agent-writer:subagent:a9dd9ab2-9166-4687-8abc-ab3eacaa0616",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_1994dad0b4cb385b35f67ab438a15e1c",
+        "accountId": "director"
+      },
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "task": "[STAR-OFFICE_REPORT: writer drafting '正在撰写调研总结...'] [FEISHU_CONTEXT: ChatID=oc_1994dad0b4cb385b35f67ab438a15e1c] 研究员已完成对【任务目标】的深度调研，请根据提供的调研结果撰写总结文档。",
+      "cleanup": "keep",
+      "createdAt": 1772888879741,
+      "startedAt": 1772888880020,
+      "archiveAtMs": 1772892479741,
+      "cleanupHandled": true,
+      "endedAt": 1772889130694,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772889142558
+    },
+    "0fd865a8-0bfa-4f58-a987-837f0c9c0a50": {
+      "runId": "0fd865a8-0bfa-4f58-a987-837f0c9c0a50",
+      "childSessionKey": "agent:agent-researcher:subagent:bfb29d4d-d577-4c4a-b134-f999e1e0b3e9",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_1994dad0b4cb385b35f67ab438a15e1c",
+        "accountId": "director"
+      },
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "task": "请立即开始调研：Aegis 深度协作模式。完成后自行交接给写手，不要向我汇报。",
+      "cleanup": "keep",
+      "createdAt": 1772889863400,
+      "startedAt": 1772889863825,
+      "archiveAtMs": 1772893463400,
+      "cleanupHandled": true,
+      "endedAt": 1772889882420,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772889882783
+    }
+  }
+}
