@@ -112,8 +112,11 @@
         },
         "subagents": {
           "allowAgents": [
+            "agent-director",
+            "agent-researcher",
             "agent-writer",
-            "agent-reviewer"
+            "agent-reviewer",
+            "agent-publisher"
           ]
         }
       },
@@ -132,6 +135,9 @@
         },
         "subagents": {
           "allowAgents": [
+            "agent-director",
+            "agent-researcher",
+            "agent-writer",
             "agent-reviewer",
             "agent-publisher"
           ]
@@ -152,7 +158,10 @@
         },
         "subagents": {
           "allowAgents": [
+            "agent-director",
+            "agent-researcher",
             "agent-writer",
+            "agent-reviewer",
             "agent-publisher"
           ]
         }
@@ -170,6 +179,15 @@
             "exec",
             "read",
             "write"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "agent-director",
+            "agent-researcher",
+            "agent-writer",
+            "agent-reviewer",
+            "agent-publisher"
           ]
         }
       }
