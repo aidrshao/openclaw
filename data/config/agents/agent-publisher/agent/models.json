@@ -21,7 +21,7 @@
           "maxTokens": 8192
         }
       ],
-      "apiKey": "sk-HjSvptDG4q377m7PSa9fZMHF31dH2vhoo5GXujzycomzkjd9"
+      "apiKey": "OPENAI_API_KEY"
     }
   }
 }

@@ -104,15 +104,16 @@
           "allow": [
             "feishu_message",
             "sessions_spawn",
+            "agents_list",
             "read",
             "write",
-            "exec",
-            "tavily_search"
+            "exec"
           ]
         },
         "subagents": {
           "allowAgents": [
-            "agent-writer"
+            "agent-writer",
+            "agent-reviewer"
           ]
         }
       },
@@ -131,7 +132,8 @@
         },
         "subagents": {
           "allowAgents": [
-            "agent-reviewer"
+            "agent-reviewer",
+            "agent-publisher"
           ]
         }
       },
@@ -141,14 +143,16 @@
         "workspace": "/home/node/.openclaw/workspace/reviewer",
         "tools": {
           "allow": [
-            "read",
             "feishu_message",
             "sessions_spawn",
+            "read",
+            "write",
             "exec"
           ]
         },
         "subagents": {
           "allowAgents": [
+            "agent-writer",
             "agent-publisher"
           ]
         }
@@ -161,6 +165,8 @@
           "allow": [
             "feishu_doc",
             "feishu_message",
+            "sessions_spawn",
+            "agents_list",
             "exec",
             "read",
             "write"

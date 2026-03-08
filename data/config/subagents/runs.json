@@ -1,23 +1,142 @@
 {
   "version": 2,
   "runs": {
-    "bfec9268-a90d-4133-b5c1-5a8aaccf5f67": {
-      "runId": "bfec9268-a90d-4133-b5c1-5a8aaccf5f67",
-      "childSessionKey": "agent:agent-researcher:subagent:af99b34a-5eb7-4ba7-920c-f43d4ac190a8",
-      "requesterSessionKey": "agent:agent-director:feishu:direct:ou_92511edb34d2d0ab4416704019ca2f7d",
+    "7faba0dc-fac9-4699-9217-3c458aac94c3": {
+      "runId": "7faba0dc-fac9-4699-9217-3c458aac94c3",
+      "childSessionKey": "agent:agent-researcher:subagent:fe58be42-a847-458d-b6c5-1453c15b274f",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
       "requesterOrigin": {
         "channel": "feishu",
-        "to": "user:ou_92511edb34d2d0ab4416704019ca2f7d",
+        "to": "chat:oc_1994dad0b4cb385b35f67ab438a15e1c",
         "accountId": "director"
       },
-      "requesterDisplayKey": "agent:agent-director:feishu:direct:ou_92511edb34d2d0ab4416704019ca2f7d",
-      "task": "请调研：DeepSeek 的最新版本。全面收集 DeepSeek 最新版本的信息，包括：1) 最新版本号和发布日期；2) 主要新功能和特性；3) 性能改进和优化；4) 与之前版本的对比；5) 使用场景和应用案例。完成后请自行交接给 agent-writer 进行内容撰写。",
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_1994dad0b4cb385b35f67ab438a15e1c",
+      "task": "请调研：OpenClaw。完成后请自行交接给 agent-writer。",
       "cleanup": "keep",
-      "label": "DeepSeek最新版本调研",
-      "createdAt": 1772926458427,
-      "startedAt": 1772926459211,
-      "archiveAtMs": 1772930058427,
-      "cleanupHandled": false
+      "label": "OpenClaw 调研",
+      "createdAt": 1772932756112,
+      "startedAt": 1772932756647,
+      "archiveAtMs": 1772936356112,
+      "cleanupHandled": true,
+      "endedAt": 1772932860821,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772932865158
+    },
+    "83bc5a7d-840f-4cd9-9cf0-7eada8827ffa": {
+      "runId": "83bc5a7d-840f-4cd9-9cf0-7eada8827ffa",
+      "childSessionKey": "agent:agent-reviewer:subagent:cd5ad0cb-827f-4a8e-94fc-cc8d84800a92",
+      "requesterSessionKey": "agent:agent-writer:main",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "oc_1994dad0b4cb385b35f67ab438a15e1c",
+        "accountId": "writer"
+      },
+      "requesterDisplayKey": "agent:agent-writer:main",
+      "task": "请审查文章初稿，路径：/home/node/.openclaw/workspace/writer/article.md。审查完成后：若有修改意见，请将意见通过 sessions_spawn 发回给 agent-writer；若文章已达标，直接移交 agent-publisher。",
+      "cleanup": "keep",
+      "label": "审查 OpenClaw 深度文章",
+      "createdAt": 1772933234040,
+      "startedAt": 1772933234697,
+      "archiveAtMs": 1772936834040,
+      "cleanupHandled": false,
+      "endedAt": 1772933245798,
+      "outcome": {
+        "status": "ok"
+      }
+    },
+    "c726d259-0365-40fe-8e56-556df914d0ba": {
+      "runId": "c726d259-0365-40fe-8e56-556df914d0ba",
+      "childSessionKey": "agent:agent-reviewer:subagent:7de0e24b-7e4d-4292-a4bc-5d0e504f1c33",
+      "requesterSessionKey": "agent:agent-writer:main",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "oc_1994dad0b4cb385b35f67ab438a15e1c",
+        "accountId": "writer"
+      },
+      "requesterDisplayKey": "agent:agent-writer:main",
+      "task": "请审查修改后的文章（老李已按上次意见修改），路径：/home/node/.openclaw/workspace/writer/article.md。若仍有问题请返回意见给 agent-writer；若已达标，直接移交 agent-publisher。",
+      "cleanup": "keep",
+      "label": "二次审查 OpenClaw 文章",
+      "createdAt": 1772933310325,
+      "startedAt": 1772933310720,
+      "archiveAtMs": 1772936910325,
+      "cleanupHandled": true,
+      "endedAt": 1772933336057,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772933351378
+    },
+    "49b29daa-7c01-4f87-b5e9-672811d9f448": {
+      "runId": "49b29daa-7c01-4f87-b5e9-672811d9f448",
+      "childSessionKey": "agent:agent-researcher:subagent:cb9e1351-c16e-4ac6-9a11-6fa6929b45b3",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+        "accountId": "director"
+      },
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+      "task": "请调研：Apple Vision Pro 在工业设计领域的最新案例。完成后请自行交接给 agent-writer。",
+      "cleanup": "keep",
+      "label": "Apple Vision Pro 工业设计调研",
+      "createdAt": 1772935162608,
+      "startedAt": 1772935162859,
+      "archiveAtMs": 1772938762608,
+      "cleanupHandled": true,
+      "endedAt": 1772935308886,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772935318945
+    },
+    "f2f466ca-f839-45cc-8622-997e61b0ed83": {
+      "runId": "f2f466ca-f839-45cc-8622-997e61b0ed83",
+      "childSessionKey": "agent:agent-writer:subagent:9827987d-9035-416e-914b-f1160fcd702e",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+        "accountId": "director"
+      },
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+      "task": "老李，调研完成。请根据 /home/node/.openclaw/workspace/researcher/apple_vision_pro_industrial_design_report.md 撰写一篇深度公众号文章，完成后移交老王审计。",
+      "cleanup": "keep",
+      "label": "Apple Vision Pro 公众号文章撰写",
+      "createdAt": 1772935316658,
+      "startedAt": 1772935316861,
+      "archiveAtMs": 1772938916658,
+      "cleanupHandled": true,
+      "endedAt": 1772935397789,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772935413749
+    },
+    "e6a0789d-2f7a-4b2d-9a5d-acc2c5ac0714": {
+      "runId": "e6a0789d-2f7a-4b2d-9a5d-acc2c5ac0714",
+      "childSessionKey": "agent:agent-reviewer:subagent:0b265c68-5fa4-4162-8a3d-f9ad3d99d234",
+      "requesterSessionKey": "agent:agent-director:feishu:group:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+        "accountId": "director"
+      },
+      "requesterDisplayKey": "agent:agent-director:feishu:group:oc_65d3c21c1634c48f36d709d6b46bd7f1",
+      "task": "老王，老李的文章已完成。请审计 /home/node/.openclaw/workspace/writer/article.md，检查合规性、逻辑一致性和质量，给出修改建议或直接通过。",
+      "cleanup": "keep",
+      "label": "Apple Vision Pro 文章审计",
+      "createdAt": 1772935407829,
+      "startedAt": 1772935408041,
+      "archiveAtMs": 1772939007829,
+      "cleanupHandled": true,
+      "endedAt": 1772935426625,
+      "outcome": {
+        "status": "ok"
+      },
+      "cleanupCompletedAt": 1772935437425
     }
   }
 }
