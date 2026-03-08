@@ -12,9 +12,9 @@
   },
   "usageStats": {
     "openai:default": {
-      "lastUsed": 1772941811273,
+      "lastUsed": 1772950313560,
       "errorCount": 0,
-      "lastFailureAt": 1772927412361
+      "lastFailureAt": 1772943139425
     }
   }
 }

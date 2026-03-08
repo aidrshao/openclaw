@@ -42,6 +42,11 @@
           "name": "publisher",
           "appId": "cli_a920f8164c78dcba",
           "appSecret": "YXqp3PJBBxknqzBFbLUHreOtCXTLrGYc"
+        },
+        "default": {
+          "name": "publisher",
+          "appId": "cli_a920f8164c78dcba",
+          "appSecret": "YXqp3PJBBxknqzBFbLUHreOtCXTLrGYc"
         }
       }
     }
