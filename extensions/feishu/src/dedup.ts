@@ -52,3 +52,8 @@ export async function tryRecordMessagePersistent(
     },
   });
 }
+
+export async function warmupDedupFromDisk(namespace: string, log?: (...args: unknown[]) => void) {
+  // New persistent dedupe handles loading on check; warmup is no-op
+  return 0;
+}
