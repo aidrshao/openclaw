@@ -64,7 +64,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai/kimi-k2.5"
+        "primary": "openai/${PRIMARY_MODEL}"
       },
       "maxConcurrent": 10,
       "subagents": {
@@ -252,14 +252,15 @@
     "level": "debug"
   },
   "models": {
+    "mode": "replace",
     "providers": {
       "openai": {
         "api": "openai-completions",
         "baseUrl": "https://www.dmxapi.cn/v1",
         "models": [
           {
-            "id": "kimi-k2.5",
-            "name": "Kimi K2.5"
+            "id": "${PRIMARY_MODEL}",
+            "name": "${PRIMARY_MODEL_NAME}"
           }
         ]
       }

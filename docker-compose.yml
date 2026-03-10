@@ -11,6 +11,8 @@ services:
       TAVILY_API_KEY: ${TAVILY_API_KEY}
       DMXAPI_KEY: ${DMXAPI_KEY}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PRIMARY_MODEL: ${PRIMARY_MODEL}
+      PRIMARY_MODEL_NAME: ${PRIMARY_MODEL_NAME}
     volumes:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace

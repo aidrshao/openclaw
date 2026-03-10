@@ -120,3 +120,20 @@ dist/protocol.schema.json
 
 # Synthing
 **/.stfolder/
+
+# --- OpenClaw Runtime Data ---
+data/**/workspace*/
+data/**/sessions/
+data/backup_bloat/
+**/*.jsonl
+**/*.jsonl.lock
+**/*.deleted.*
+**/auth-profiles.json
+**/sessions.json
+**/agent/models.json
+**/dedup/*.json
+**/subagents/runs.json
+**/devices/paired.json
+**/identity/device-auth.json
+**/update-check.json
+pnpm-debug.log*
