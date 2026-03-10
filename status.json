@@ -1,0 +1,77 @@
+{
+  "heartbeat": {
+    "defaultAgentId": "main",
+    "agents": [
+      {
+        "agentId": "main",
+        "enabled": true,
+        "every": "30m",
+        "everyMs": 1800000
+      }
+    ]
+  },
+  "channelSummary": [
+    "Feishu: configured",
+    "  - default"
+  ],
+  "queuedSystemEvents": [],
+  "sessions": {
+    "paths": [
+      "/home/node/.openclaw/agents/main/sessions/sessions.json"
+    ],
+    "count": 1,
+    "defaults": {
+      "model": "claude-opus-4-5",
+      "contextTokens": 200000
+    },
+    "recent": [
+      {
+        "agentId": "main",
+        "key": "agent:main:main",
+        "kind": "direct",
+        "sessionId": "77a264a4-76d0-4977-886b-fa8b96279662",
+        "updatedAt": 1772283395765,
+        "age": 69306191,
+        "systemSent": true,
+        "abortedLastRun": false,
+        "totalTokens": 0,
+        "remainingTokens": 200000,
+        "percentUsed": 0,
+        "model": "claude-opus-4-5",
+        "contextTokens": 200000,
+        "flags": [
+          "system",
+          "id:77a264a4-76d0-4977-886b-fa8b96279662"
+        ]
+      }
+    ],
+    "byAgent": [
+      {
+        "agentId": "main",
+        "path": "/home/node/.openclaw/agents/main/sessions/sessions.json",
+        "count": 1,
+        "recent": [
+          {
+            "agentId": "main",
+            "key": "agent:main:main",
+            "kind": "direct",
+            "sessionId": "77a264a4-76d0-4977-886b-fa8b96279662",
+            "updatedAt": 1772283395765,
+            "age": 69306191,
+            "systemSent": true,
+            "abortedLastRun": false,
+            "totalTokens": 0,
+            "remainingTokens": 200000,
+            "percentUsed": 0,
+            "model": "claude-opus-4-5",
+            "contextTokens": 200000,
+            "flags": [
+              "system",
+              "id:77a264a4-76d0-4977-886b-fa8b96279662"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "dmPolicy": "any",
+      "allowFrom": [
+        "*"
+      ],
+      "tools": {
+        "doc": true,
+        "wiki": true,
+        "drive": true
+      },
+      "accounts": {
+        "director": {
+          "name": "director",
+          "appId": "cli_a920ff4d8e391cee",
+          "appSecret": "o6KxTLiQBdfohSK2EG0MsbAlrGFYJkF0"
+        },
+        "researcher": {
+          "name": "researcher",
+          "appId": "cli_a920ff99c3f89cce",
+          "appSecret": "ZRlUEdwQPBM76lflzhxLBcqe6Wu2thlc"
+        },
+        "writer": {
+          "name": "writer",
+          "appId": "cli_a920ffdd27f81cb6",
+          "appSecret": "EO7jONj1lQQke5Hl6jEJle7n7yTowbck"
+        },
+        "reviewer": {
+          "name": "reviewer",
+          "appId": "cli_a920fff5f0385cb0",
+          "appSecret": "iuZTKnzu8sc1Q4iF38valenFnwSrInGR"
+        },
+        "publisher": {
+          "name": "publisher",
+          "appId": "cli_a920f8164c78dcba",
+          "appSecret": "YXqp3PJBBxknqzBFbLUHreOtCXTLrGYc"
+        },
+        "default": {
+          "name": "publisher",
+          "appId": "cli_a920f8164c78dcba",
+          "appSecret": "YXqp3PJBBxknqzBFbLUHreOtCXTLrGYc"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "controlUi": {
+      "dangerouslyDisableDeviceAuth": true
+    },
+    "auth": {
+      "mode": "token",
+      "token": "123456"
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/${PRIMARY_MODEL}"
+      },
+      "maxConcurrent": 10,
+      "subagents": {
+        "maxConcurrent": 20
+      }
+    },
+    "list": [
+      {
+        "id": "agent-director",
+        "name": "director",
+        "default": true,
+        "workspace": "/home/node/.openclaw/workspace",
+        "tools": {
+          "allow": [
+            "sessions_spawn",
+            "agents_list",
+            "feishu_message",
+            "read",
+            "write",
+            "exec"
+          ],
+          "deny": [
+            "web_search",
+            "web_fetch",
+            "lobster"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "agent-researcher",
+            "agent-writer",
+            "agent-reviewer",
+            "agent-publisher"
+          ]
+        }
+      },
+      {
+        "id": "agent-researcher",
+        "name": "researcher",
+        "workspace": "/home/node/.openclaw/workspace/researcher",
+        "tools": {
+          "allow": [
+            "feishu_message",
+            "sessions_spawn",
+            "agents_list",
+            "read",
+            "write",
+            "exec"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "agent-director",
+            "agent-researcher",
+            "agent-writer",
+            "agent-reviewer",
+            "agent-publisher"
+          ]
+        }
+      },
+      {
+        "id": "agent-writer",
+        "name": "writer",
+        "workspace": "/home/node/.openclaw/workspace/writer",
+        "tools": {
+          "allow": [
+            "feishu_message",
+            "sessions_spawn",
+            "read",
+            "write",
+            "exec"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "agent-director",
+            "agent-researcher",
+            "agent-writer",
+            "agent-reviewer",
+            "agent-publisher"
+          ]
+        }
+      },
+      {
+        "id": "agent-reviewer",
+        "name": "reviewer",
+        "workspace": "/home/node/.openclaw/workspace/reviewer",
+        "tools": {
+          "allow": [
+            "feishu_message",
+            "sessions_spawn",
+            "read",
+            "write",
+            "exec"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "agent-director",
+            "agent-researcher",
+            "agent-writer",
+            "agent-reviewer",
+            "agent-publisher"
+          ]
+        }
+      },
+      {
+        "id": "agent-publisher",
+        "name": "publisher",
+        "workspace": "/home/node/.openclaw/workspace/publisher",
+        "tools": {
+          "allow": [
+            "feishu_doc",
+            "feishu_message",
+            "sessions_spawn",
+            "agents_list",
+            "exec",
+            "read",
+            "write"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "agent-director",
+            "agent-researcher",
+            "agent-writer",
+            "agent-reviewer",
+            "agent-publisher"
+          ]
+        }
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "agent-director",
+      "match": {
+        "channel": "feishu",
+        "accountId": "director"
+      }
+    },
+    {
+      "agentId": "agent-researcher",
+      "match": {
+        "channel": "feishu",
+        "accountId": "researcher"
+      }
+    },
+    {
+      "agentId": "agent-writer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "writer"
+      }
+    },
+    {
+      "agentId": "agent-reviewer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "reviewer"
+      }
+    },
+    {
+      "agentId": "agent-publisher",
+      "match": {
+        "channel": "feishu",
+        "accountId": "publisher"
+      }
+    }
+  ],
+  "messages": {
+    "ackReactionScope": "all"
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "lobster": {
+        "enabled": true
+      }
+    }
+  },
+  "logging": {
+    "level": "debug"
+  },
+  "models": {
+    "mode": "replace",
+    "providers": {
+      "openai": {
+        "api": "openai-completions",
+        "baseUrl": "https://www.dmxapi.cn/v1",
+        "models": [
+          {
+            "id": "${PRIMARY_MODEL}",
+            "name": "${PRIMARY_MODEL_NAME}"
+          }
+        ]
+      }
+    }
+  }
+}

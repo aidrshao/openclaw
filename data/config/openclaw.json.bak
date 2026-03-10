@@ -1,0 +1,27 @@
+{
+  "gateway": {
+    "auth": {
+      "mode": "token",
+      "token": "123456"
+    },
+    "controlUi": {
+      "dangerouslyDisableDeviceAuth": true
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "cli_a92956a60b781cc7",
+      "appSecret": "WnTLGCEohDsE2vV5PVUJlctOZYcvIkfH",
+      "connectionMode": "websocket",
+      "domain": "feishu",
+      "dmPolicy": "pairing",
+      "allowFrom": ["*"],
+      "tools": {
+        "doc": true,
+        "wiki": true,
+        "drive": true
+      }
+    }
+  }
+}
