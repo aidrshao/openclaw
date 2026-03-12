@@ -50,7 +50,7 @@ describe("runCronIsolatedAgentTurn auth profile propagation (#20624)", () => {
         payloads: [{ text: "done" }],
         meta: {
           durationMs: 5,
-          agentMeta: { sessionId: "s", provider: "openrouter", model: "kimi-k2.5" },
+          agentMeta: { sessionId: "s", provider: "openrouter", model: "MiniMax-M2.1" },
         },
       });
 
@@ -58,7 +58,7 @@ describe("runCronIsolatedAgentTurn auth profile propagation (#20624)", () => {
       const cfg = makeCfg(home, storePath, {
         agents: {
           defaults: {
-            model: { primary: "openrouter/moonshotai/kimi-k2.5" },
+            model: { primary: "openrouter/moonshotai/MiniMax-M2.1" },
             workspace: path.join(home, "openclaw"),
           },
         },

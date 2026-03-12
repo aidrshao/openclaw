@@ -6,7 +6,7 @@ vi.mock("../../agents/model-catalog.js", () => ({
   loadModelCatalog: vi.fn(async () => [
     { provider: "anthropic", id: "claude-opus-4-5", name: "Claude Opus 4.5" },
     { provider: "inferencer", id: "deepseek-v3-4bit-mlx", name: "DeepSeek V3" },
-    { provider: "kimi-coding", id: "k2p5", name: "Kimi K2.5" },
+    { provider: "kimi-coding", id: "k2p5", name: "MiniMax M2.1" },
     { provider: "openai", id: "gpt-4o-mini", name: "GPT-4o mini" },
     { provider: "openai", id: "gpt-4o", name: "GPT-4o" },
   ]),

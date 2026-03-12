@@ -5,7 +5,7 @@ import { createSubsystemLogger } from "../logging/subsystem.js";
 const log = createSubsystemLogger("venice-models");
 
 export const VENICE_BASE_URL = "https://api.venice.ai/api/v1";
-export const VENICE_DEFAULT_MODEL_ID = "kimi-k2-5";
+export const VENICE_DEFAULT_MODEL_ID = "MiniMax-M2.1";
 export const VENICE_DEFAULT_MODEL_REF = `venice/${VENICE_DEFAULT_MODEL_ID}`;
 
 // Venice uses credit-based pricing, not per-token costs.
@@ -267,8 +267,8 @@ export const VENICE_MODEL_CATALOG = [
     privacy: "private",
   },
   {
-    id: "kimi-k2-5",
-    name: "Kimi K2.5",
+    id: "MiniMax-M2.1",
+    name: "MiniMax M2.1",
     reasoning: true,
     input: ["text", "image"],
     contextWindow: 256000,

@@ -98,8 +98,8 @@ function createMoonshotConfig(overrides: {
           api: "openai-completions",
           models: [
             {
-              id: "kimi-k2.5",
-              name: "Kimi K2.5",
+              id: "MiniMax-M2.1",
+              name: "MiniMax M2.1",
               reasoning: false,
               input: ["text"],
               cost: { input: 123, output: 456, cacheRead: 0, cacheWrite: 0 },
@@ -431,7 +431,7 @@ describe("models-config", () => {
             }
           >;
         }>();
-        const kimi = parsed.providers.moonshot?.models?.find((model) => model.id === "kimi-k2.5");
+        const kimi = parsed.providers.moonshot?.models?.find((model) => model.id === "MiniMax-M2.1");
         expect(kimi?.input).toEqual(["text", "image"]);
         expect(kimi?.reasoning).toBe(false);
         expect(kimi?.contextWindow).toBe(1024);
@@ -495,7 +495,7 @@ describe("models-config", () => {
             }
           >;
         }>();
-        const kimi = parsed.providers.moonshot?.models?.find((model) => model.id === "kimi-k2.5");
+        const kimi = parsed.providers.moonshot?.models?.find((model) => model.id === "MiniMax-M2.1");
         expect(kimi?.contextWindow).toBe(350000);
         expect(kimi?.maxTokens).toBe(16384);
       });
@@ -520,7 +520,7 @@ describe("models-config", () => {
             }
           >;
         }>();
-        const kimi = parsed.providers.moonshot?.models?.find((model) => model.id === "kimi-k2.5");
+        const kimi = parsed.providers.moonshot?.models?.find((model) => model.id === "MiniMax-M2.1");
         expect(kimi?.contextWindow).toBe(256000);
         expect(kimi?.maxTokens).toBe(8192);
       });

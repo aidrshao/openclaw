@@ -19,7 +19,7 @@ export const TOGETHER_MODEL_CATALOG: ModelDefinitionConfig[] = [
   },
   {
     id: "moonshotai/Kimi-K2.5",
-    name: "Kimi K2.5",
+    name: "MiniMax M2.1",
     reasoning: true,
     input: ["text", "image"],
     cost: {

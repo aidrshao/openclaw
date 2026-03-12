@@ -7,7 +7,7 @@ describe("isCacheTtlEligibleProvider", () => {
   });
 
   it("allows moonshot and zai providers", () => {
-    expect(isCacheTtlEligibleProvider("moonshot", "kimi-k2.5")).toBe(true);
+    expect(isCacheTtlEligibleProvider("moonshot", "MiniMax-M2.1")).toBe(true);
     expect(isCacheTtlEligibleProvider("zai", "glm-5")).toBe(true);
   });
 
@@ -18,8 +18,8 @@ describe("isCacheTtlEligibleProvider", () => {
 
   it("allows openrouter cache-ttl models", () => {
     expect(isCacheTtlEligibleProvider("openrouter", "anthropic/claude-sonnet-4")).toBe(true);
-    expect(isCacheTtlEligibleProvider("openrouter", "moonshotai/kimi-k2.5")).toBe(true);
-    expect(isCacheTtlEligibleProvider("openrouter", "moonshot/kimi-k2.5")).toBe(true);
+    expect(isCacheTtlEligibleProvider("openrouter", "moonshotai/MiniMax-M2.1")).toBe(true);
+    expect(isCacheTtlEligibleProvider("openrouter", "moonshot/MiniMax-M2.1")).toBe(true);
     expect(isCacheTtlEligibleProvider("openrouter", "zai/glm-5")).toBe(true);
   });
 

@@ -2,7 +2,7 @@ import type { VideoDescriptionRequest, VideoDescriptionResult } from "../../type
 import { assertOkOrThrowHttpError, normalizeBaseUrl, postJsonRequest } from "../shared.js";
 
 export const DEFAULT_MOONSHOT_VIDEO_BASE_URL = "https://api.moonshot.ai/v1";
-const DEFAULT_MOONSHOT_VIDEO_MODEL = "kimi-k2.5";
+const DEFAULT_MOONSHOT_VIDEO_MODEL = "MiniMax-M2.1";
 const DEFAULT_MOONSHOT_VIDEO_PROMPT = "Describe the video.";
 
 type MoonshotVideoPayload = {

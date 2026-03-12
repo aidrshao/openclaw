@@ -24,11 +24,11 @@ export const DEFAULT_MINIMAX_MAX_TOKENS = 8192;
 
 export const MOONSHOT_BASE_URL = "https://api.moonshot.ai/v1";
 export const MOONSHOT_CN_BASE_URL = "https://api.moonshot.cn/v1";
-export const MOONSHOT_DEFAULT_MODEL_ID = "kimi-k2.5";
+export const MOONSHOT_DEFAULT_MODEL_ID = "MiniMax-M2.1";
 export const MOONSHOT_DEFAULT_MODEL_REF = `moonshot/${MOONSHOT_DEFAULT_MODEL_ID}`;
 export const MOONSHOT_DEFAULT_CONTEXT_WINDOW = 256000;
 export const MOONSHOT_DEFAULT_MAX_TOKENS = 8192;
-export const KIMI_CODING_MODEL_ID = "k2p5";
+export const KIMI_CODING_MODEL_ID = "MiniMax-M2.1";
 export const KIMI_CODING_MODEL_REF = `kimi-coding/${KIMI_CODING_MODEL_ID}`;
 
 export { QIANFAN_BASE_URL, QIANFAN_DEFAULT_MODEL_ID };
@@ -136,7 +136,7 @@ export function buildMinimaxApiModelDefinition(modelId: string): ModelDefinition
 export function buildMoonshotModelDefinition(): ModelDefinitionConfig {
   return {
     id: MOONSHOT_DEFAULT_MODEL_ID,
-    name: "Kimi K2.5",
+    name: "MiniMax M2.1",
     reasoning: false,
     input: ["text", "image"],
     cost: MOONSHOT_DEFAULT_COST,

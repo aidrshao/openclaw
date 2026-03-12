@@ -78,7 +78,7 @@ describe("applyAuthChoice (moonshot)", () => {
     );
     expect(result.config.models?.providers?.moonshot?.baseUrl).toBe("https://api.moonshot.cn/v1");
     expect(result.config.models?.providers?.moonshot?.models?.[0]?.input).toContain("image");
-    expect(result.agentModelOverride).toBe("moonshot/kimi-k2.5");
+    expect(result.agentModelOverride).toBe("moonshot/MiniMax-M2.1");
 
     const parsed = await readAuthProfiles();
     expect(parsed.profiles?.["moonshot:default"]?.key).toBe("sk-moonshot-cn-test");
@@ -93,7 +93,7 @@ describe("applyAuthChoice (moonshot)", () => {
     });
 
     expect(resolveAgentModelPrimaryValue(result.config.agents?.defaults?.model)).toBe(
-      "moonshot/kimi-k2.5",
+      "moonshot/MiniMax-M2.1",
     );
     expect(result.config.models?.providers?.moonshot?.baseUrl).toBe("https://api.moonshot.cn/v1");
     expect(result.config.models?.providers?.moonshot?.models?.[0]?.input).toContain("image");

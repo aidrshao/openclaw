@@ -65,7 +65,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai/${PRIMARY_MODEL}"
+        "primary": "openai/MiniMax-M2.1"
       },
       "maxConcurrent": 10,
       "subagents": {
@@ -83,13 +83,11 @@
             "sessions_spawn",
             "agents_list",
             "feishu_message",
-            "read",
-            "write",
-            "exec"
-          ],
-          "deny": [
             "web_search",
             "web_fetch",
+            "read",
+            "write",
+            "exec",
             "lobster"
           ]
         },
@@ -111,9 +109,12 @@
             "feishu_message",
             "sessions_spawn",
             "agents_list",
+            "web_search",
+            "web_fetch",
             "read",
             "write",
-            "exec"
+            "exec",
+            "lobster"
           ]
         },
         "subagents": {
@@ -134,9 +135,12 @@
           "allow": [
             "feishu_message",
             "sessions_spawn",
+            "web_search",
+            "web_fetch",
             "read",
             "write",
-            "exec"
+            "exec",
+            "lobster"
           ]
         },
         "subagents": {
@@ -260,8 +264,8 @@
         "baseUrl": "https://www.dmxapi.cn/v1",
         "models": [
           {
-            "id": "${PRIMARY_MODEL}",
-            "name": "${PRIMARY_MODEL_NAME}"
+            "id": "MiniMax-M2.1",
+            "name": "MiniMax M2.1"
           }
         ]
       }

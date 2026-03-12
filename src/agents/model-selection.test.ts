@@ -82,9 +82,9 @@ describe("model-selection", () => {
     });
 
     it("preserves nested model ids after provider prefix", () => {
-      expect(parseModelRef("nvidia/moonshotai/kimi-k2.5", "anthropic")).toEqual({
+      expect(parseModelRef("nvidia/moonshotai/MiniMax-M2.1", "anthropic")).toEqual({
         provider: "nvidia",
-        model: "moonshotai/kimi-k2.5",
+        model: "moonshotai/MiniMax-M2.1",
       });
     });
 
@@ -447,7 +447,7 @@ describe("model-selection", () => {
     it("strips profile suffix before alias resolution", () => {
       const index = {
         byAlias: new Map([
-          ["kimi", { alias: "kimi", ref: { provider: "nvidia", model: "moonshotai/kimi-k2.5" } }],
+          ["kimi", { alias: "kimi", ref: { provider: "nvidia", model: "moonshotai/MiniMax-M2.1" } }],
         ]),
         byKey: new Map(),
       };
@@ -459,7 +459,7 @@ describe("model-selection", () => {
       });
       expect(resolved?.ref).toEqual({
         provider: "nvidia",
-        model: "moonshotai/kimi-k2.5",
+        model: "moonshotai/MiniMax-M2.1",
       });
       expect(resolved?.alias).toBe("kimi");
     });

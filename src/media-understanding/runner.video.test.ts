@@ -30,7 +30,7 @@ describe("runCapability video provider wiring", () => {
               models: [
                 {
                   provider: "moonshot",
-                  model: "kimi-k2.5",
+                  model: "MiniMax-M2.1",
                   baseUrl: "https://entry.example/v1",
                   headers: { "X-Entry": "3" },
                 },
@@ -119,7 +119,7 @@ describe("runCapability video provider wiring", () => {
                 {
                   id: "moonshot",
                   capabilities: ["video"],
-                  describeVideo: async () => ({ text: "moonshot", model: "kimi-k2.5" }),
+                  describeVideo: async () => ({ text: "moonshot", model: "MiniMax-M2.1" }),
                 },
               ],
             ]),

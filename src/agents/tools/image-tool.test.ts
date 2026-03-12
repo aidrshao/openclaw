@@ -90,7 +90,7 @@ function stubOpenAiCompletionsOkFetch(text = "ok") {
               id: "chatcmpl-moonshot-test",
               object: "chat.completion.chunk",
               created: Math.floor(Date.now() / 1000),
-              model: "kimi-k2.5",
+              model: "MiniMax-M2.1",
               choices: [
                 {
                   index: 0,
@@ -103,7 +103,7 @@ function stubOpenAiCompletionsOkFetch(text = "ok") {
               id: "chatcmpl-moonshot-test",
               object: "chat.completion.chunk",
               created: Math.floor(Date.now() / 1000),
-              model: "kimi-k2.5",
+              model: "MiniMax-M2.1",
               choices: [{ index: 0, delta: {}, finish_reason: "stop" }],
             })}\n\n`,
             "data: [DONE]\n\n",
@@ -400,8 +400,8 @@ describe("image tool implicit imageModel config", () => {
       const cfg: OpenClawConfig = {
         agents: {
           defaults: {
-            model: { primary: "moonshot/kimi-k2.5" },
-            imageModel: { primary: "moonshot/kimi-k2.5" },
+            model: { primary: "moonshot/MiniMax-M2.1" },
+            imageModel: { primary: "moonshot/MiniMax-M2.1" },
           },
         },
         models: {
@@ -409,7 +409,7 @@ describe("image tool implicit imageModel config", () => {
             moonshot: {
               api: "openai-completions",
               baseUrl: "https://api.moonshot.ai/v1",
-              models: [makeModelDefinition("kimi-k2.5", ["text", "image"])],
+              models: [makeModelDefinition("MiniMax-M2.1", ["text", "image"])],
             },
           },
         },

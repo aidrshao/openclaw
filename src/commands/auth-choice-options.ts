@@ -55,8 +55,8 @@ const AUTH_CHOICE_GROUP_DEFS: {
   },
   {
     value: "moonshot",
-    label: "Moonshot AI (Kimi K2.5)",
-    hint: "Kimi K2.5 + Kimi Coding",
+    label: "Moonshot AI (MiniMax M2.1)",
+    hint: "MiniMax M2.1 + Kimi Coding",
     choices: ["moonshot-api-key", "moonshot-api-key-cn", "kimi-code-api-key"],
   },
   {

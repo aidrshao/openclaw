@@ -57,7 +57,7 @@ describe("resolveTranscriptPolicy", () => {
   it("enables user-turn merge for strict OpenAI-compatible providers", () => {
     const policy = resolveTranscriptPolicy({
       provider: "moonshot",
-      modelId: "kimi-k2.5",
+      modelId: "MiniMax-M2.1",
       modelApi: "openai-completions",
     });
     expect(policy.applyGoogleTurnOrdering).toBe(true);

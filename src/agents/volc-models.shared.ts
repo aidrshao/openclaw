@@ -10,8 +10,8 @@ export type VolcModelCatalogEntry = {
 };
 
 export const VOLC_MODEL_KIMI_K2_5 = {
-  id: "kimi-k2-5-260127",
-  name: "Kimi K2.5",
+  id: "MiniMax-M2.1-260127",
+  name: "MiniMax M2.1",
   reasoning: false,
   input: ["text", "image"] as const,
   contextWindow: 256000,
@@ -61,8 +61,8 @@ export const VOLC_SHARED_CODING_MODEL_CATALOG = [
     maxTokens: 4096,
   },
   {
-    id: "kimi-k2.5",
-    name: "Kimi K2.5 Coding",
+    id: "MiniMax-M2.1",
+    name: "MiniMax M2.1 Coding",
     reasoning: false,
     input: ["text"] as const,
     contextWindow: 256000,

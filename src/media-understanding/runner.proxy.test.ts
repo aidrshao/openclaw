@@ -89,7 +89,7 @@ describe("runCapability proxy fetch passthrough", () => {
             media: {
               video: {
                 enabled: true,
-                models: [{ provider: "moonshot", model: "kimi-k2.5" }],
+                models: [{ provider: "moonshot", model: "MiniMax-M2.1" }],
               },
             },
           },
