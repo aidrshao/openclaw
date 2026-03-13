@@ -282,6 +282,16 @@ scripts/init_skill.py my-skill --path skills/public --resources scripts,referenc
 scripts/init_skill.py my-skill --path skills/public --resources scripts --examples
 ```
 
+> [!IMPORTANT]
+> **Docker Environment Pathing Rule**
+> When running inside a Docker container, the `/app/skills` directory is NOT persistent and will be lost on restart.
+>
+> - **WRONG PATH**: `/app/skills/` (Temporary, will disappear)
+> - **CORRECT GLOBAL PATH**: `/home/node/.openclaw/skills/` (Persistent, shared by all agents)
+> - **CORRECT AGENT PATH**: `/home/node/.openclaw/workspace/<agent-name>/skills/` (Persistent, private to that agent)
+>
+> Always prefer `/home/node/.openclaw/skills/` for general-purpose tools to ensure high availability and persistence across sessions.
+
 The script:
 
 - Creates the skill directory at the specified path

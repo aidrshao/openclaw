@@ -1,4 +1,38 @@
 {
   "version": 1,
-  "jobs": []
+  "jobs": [
+    {
+      "id": "200be03f-3597-4ffa-ae8e-daf2e022c2ea",
+      "name": "daily-hello",
+      "enabled": true,
+      "createdAtMs": 1773397511504,
+      "updatedAtMs": 1773402316533,
+      "schedule": {
+        "kind": "cron",
+        "expr": "45 19 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你好"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "ou_92511edb34d2d0ab4416704019ca2f7d"
+      },
+      "state": {
+        "nextRunAtMs": 1773488700000,
+        "lastRunAtMs": 1773402300035,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 16498,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    }
+  ]
 }
