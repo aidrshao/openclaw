@@ -16,6 +16,7 @@ services:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       TZ: ${OPENCLAW_TZ:-UTC}
     volumes:
+      - .:/app
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
     tmpfs:
@@ -69,6 +70,7 @@ services:
       PRIMARY_MODEL_NAME: ${PRIMARY_MODEL_NAME}
       TZ: ${OPENCLAW_TZ:-UTC}
     volumes:
+      - .:/app
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
     stdin_open: true

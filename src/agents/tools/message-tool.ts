@@ -617,7 +617,8 @@ function buildMessageToolDescription(options?: {
   currentChannel?: string;
   currentChannelId?: string;
 }): string {
-  const baseDescription = "Send, delete, and manage messages via channel plugins.";
+  const baseDescription =
+    "Send, delete, and manage messages via channel plugins. Supports sending images and files via the 'media' parameter.";
 
   // If we have a current channel, show its actions and list other configured channels
   if (options?.currentChannel) {
